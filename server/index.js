@@ -29,10 +29,12 @@ app.post("/register", async (req, res) => {
       return res.status(400).json({ message: "All fields required" });
     }
 
-    const [existingUser] = await db.query(
-      "SELECT * FROM users WHERE username = ?",
-      [username]
-    );
+    const results = await db.query(
+  "SELECT * FROM users WHERE username = ?",
+  [username]
+);
+
+const existingUser = results[0];
 
     console.log("Checked existing user");
 
@@ -54,9 +56,9 @@ app.post("/register", async (req, res) => {
     res.status(201).json({ message: "User registered successfully" });
 
   } catch (err) {
-    console.error("❌ REGISTER ERROR:", err); // 👈 VERY IMPORTANT
-    res.status(500).json({ message: "Server error" });
-  }
+  console.error("❌ REGISTER ERROR:", err);
+  res.status(500).json({ message: err.message });
+}
 });
 
 // Login
@@ -74,9 +76,9 @@ app.post("/login", async (req, res) => {
 
     res.json({ message: "Login successful" });
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: "Server error" });
-  }
+  console.error("❌ LOGIN ERROR:", err);
+  res.status(500).json({ message: err.message });
+}
 });
 
 // Home route
