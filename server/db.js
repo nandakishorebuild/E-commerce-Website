@@ -1,10 +1,10 @@
 import mysql from "mysql2/promise";
 
 const db = mysql.createPool({
-  uri: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false
-  },
+  host: "localhost",
+  user: "root",
+  password: "auth123456789",
+  database: "auth_db",
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0

@@ -8,7 +8,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get("https://auth-backend-5vx0.onrender.com/home", { withCredentials: true })
+      .get("http://localhost:5731/home", { withCredentials: true })
       .then((res) => {
         setUsername(res.data.username);
       })
@@ -19,7 +19,7 @@ const Home = () => {
 
   const handleLogout = () => {
     axios
-      .post("https://auth-backend-5vx0.onrender.com/logout", {}, { withCredentials: true })
+      .post("http://localhost:5731/logout", {}, { withCredentials: true })
       .then(() => navigate("/login"))
       .catch(() => alert("Logout failed"));
   };
