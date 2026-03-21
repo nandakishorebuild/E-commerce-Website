@@ -1,13 +1,15 @@
 import express from "express";
 import cors from "cors";
 import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken";        // ✅ NEW - import jwt
+import jwt from "jsonwebtoken";
+import cookieParser from "cookie-parser";        // ✅ NEW - import jwt
 import db from "./db.js";
 import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
 app.use(express.json());
+app.use(cookieParser());
 
 // ✅ Fixed CORS
 app.use(cors({
@@ -34,10 +36,6 @@ const verifyToken = (req, res, next) => {
     return res.status(401).json({ message: "Invalid or expired token" });
   }
 };
-
-// ✅ NEW - cookie-parser to read cookies
-import cookieParser from "cookie-parser";
-app.use(cookieParser());
 
 // Register - no changes needed here
 app.post("/register", async (req, res) => {
