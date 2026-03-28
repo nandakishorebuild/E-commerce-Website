@@ -180,7 +180,7 @@ http://localhost:5173
 **Nanda Kishore**
 Aspiring Full Stack Developer
 
-GitHub: https://github.com/nandakishorebuild
+GitHub: https://github.com/nandakishore927
 
 ---
 
