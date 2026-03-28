@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ShoppingCart, Home, Package, Info, LogOut } from "lucide-react";
 import { useCart } from "../context/CartContext";
@@ -33,29 +33,65 @@ const Navbar = () => {
 
       <ul className="flex items-center gap-8 text-sm font-medium">
         <li>
-          <Link to="/home" className="flex items-center gap-1 hover:text-blue-400 transition duration-200">
-            <Home size={16} /> Home
-          </Link>
+          <NavLink
+          to="/home"
+          className={({ isActive }) =>
+            `flex items-center gap-1 transition duration-200 ${
+              isActive
+                ? "text-blue-400 border-b-2 border-blue-400 pb-1"
+                : "hover:text-blue-400"
+            }`
+          }
+        >
+          <Home size={16} /> Home
+        </NavLink>
         </li>
         <li>
-          <Link to="/products" className="flex items-center gap-1 hover:text-blue-400 transition duration-200">
+          <NavLink
+            to="/products"
+            className={({ isActive }) =>
+              `flex items-center gap-1 transition duration-200 ${
+                isActive
+                  ? "text-blue-400 border-b-2 border-blue-400 pb-1"
+                  : "hover:text-blue-400"
+              }`
+            }
+          >
             <Package size={16} /> Products
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/about" className="flex items-center gap-1 hover:text-blue-400 transition duration-200">
-            <Info size={16} /> About
-          </Link>
+          <NavLink
+  to="/about"
+  className={({ isActive }) =>
+    `flex items-center gap-1 ${
+      isActive
+        ? "text-blue-400 border-b-2 border-blue-400 pb-1"
+        : "hover:text-blue-400"
+    }`
+  }
+>
+  <Info size={16} /> About
+</NavLink>
         </li>
         <li>
-          <Link to="/cart" className="flex items-center gap-1 hover:text-blue-400 transition duration-200 relative">
-            <ShoppingCart size={16} /> Cart
-            {totalItems > 0 && (
-              <span className="absolute -top-3 -right-3 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                {totalItems}
-              </span>
-            )}
-          </Link>
+          <NavLink
+  to="/cart"
+  className={({ isActive }) =>
+    `flex items-center gap-1 relative ${
+      isActive
+        ? "text-blue-400 border-b-2 border-blue-400 pb-1"
+        : "hover:text-blue-400"
+    }`
+  }
+>
+  <ShoppingCart size={16} /> Cart
+  {totalItems > 0 && (
+    <span className="absolute -top-3 -right-3 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+      {totalItems}
+    </span>
+  )}
+</NavLink>
         </li>
         <button
         onClick={handleLogout}
