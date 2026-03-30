@@ -4,6 +4,16 @@ A modern **full stack web application** featuring secure authentication and a re
 
 ---
 
+## 🌐 Live Demo
+
+### 🔗 Frontend (Vercel)
+👉 [https://e-commerce-website-test-2yjv.vercel.app](https://e-commerce-website-test-2yjv.vercel.app)
+
+### 🔗 Backend (Render)
+👉 [https://e-commerce-website-test.onrender.com](https://e-commerce-website-test.onrender.com)
+
+---
+
 ## 📌 Description
 
 This project demonstrates how to build a secure authentication system and integrate it with a modern e-commerce UI. Users can register, login, browse products, and manage their cart seamlessly.
@@ -120,9 +130,7 @@ DB_NAME=auth_db
 
 ```sql
 CREATE DATABASE auth_db;
-
 USE auth_db;
-
 CREATE TABLE users (
   id INT AUTO_INCREMENT PRIMARY KEY,
   username VARCHAR(255) UNIQUE,
@@ -150,9 +158,13 @@ npm run dev
 
 ---
 
-### 🌐 Access Application
+### 🌐 Access Application (Local)
 
+```
 http://localhost:5173
+```
+
+> For the live hosted version, visit the links in the [Live Demo](#-live-demo) section above.
 
 ---
 
@@ -179,8 +191,7 @@ http://localhost:5173
 
 **Nanda Kishore**
 Aspiring Full Stack Developer
-
-GitHub: https://github.com/nandakishore927
+GitHub: [https://github.com/nandakishorebuild](https://github.com/nandakishorebuild)
 
 ---
 
